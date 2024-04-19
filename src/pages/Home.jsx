@@ -24,7 +24,7 @@ function Home(props) {
   },[]);
 
   return (
-    <div className='min-h-screen flex flex-col items-center justify-center bg-gray-300'>
+    <div className='min-h-screen flex flex-col items-center justify-center min-w-screen bg-gray-300'>
       <TodoInput userData={userData} setTodos={setTodos}/>
       {
         todos.map((element) => {

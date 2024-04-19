@@ -26,18 +26,23 @@ function Register(props) {
     try {
       const response = await axios.post('https://backend-pe1a.onrender.com/register',userData);
       const data = response.data;
-      props.setUserData(data.userPresent);
-      props.setTokens(data.tokens);
-      props.setAuth(true);
-      toast.success('User Logged In');
+      console.log(data,'data');
+      console.log('sdblvs');
+      if(data.userExist === true){
+        toast.error('User is already register , Login');
+      }
+      else{
+        props.setUserData(data.userPresent);
+        props.setTokens(data.tokens);
+        props.setAuth(true);
+        toast.success('Register In');
+      }
     } catch (error) {
       console.log('error is prsent in register page',error);
-      toast.error('Unable to Register User');
+      toast.error('User Already Register');
     }
 
   }
-
-  console.log(username,email,password);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">

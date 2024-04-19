@@ -42,33 +42,36 @@ const TodoItem = (props) => {
   }
 
   return (
-    <div className="w-[80%] flex justify-between items-center bg-white shadow-md rounded-lg p-4 m-2">
-      {
-        updateTodo ? <div className='flex items-center justify-center'>
+    <div className="flex sm:w-[40%] justify-between flex-col md:flex-row  items-center bg-white shadow-md rounded-lg p-4 mt-2 space-y-2 md:space-y-0 md:space-x-4">
+  {
+    updateTodo ? (
+      <div className='flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-2'>
         <input
           type="text"
-          className="form-input px-2 py-1 rounded-l-md border-2 border-gray-300 focus:outline-none"
+          className="form-input px-2 py-1 rounded-l-md border-2 border-gray-300 focus:outline-none w-full md:w-auto"
           placeholder="Update todo"
           value={title}
-          onChange={(event_object)=>setTitle(event_object.target.value)}        
+          onChange={(event) => setTitle(event.target.value)}        
           />
-          <button onClick={() =>updateHandler()} className="flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-indigo-600 bg-transparent">Update</button>
-        </div> :
-        <span className="text-gray-800 text-sm md:text-lg">{todo.title}</span>
-      }
-      <div className="flex space-x-2">
-        <button
-          onClick={() => setUpdateTodo(!updateTodo)}
-          className="text-blue-500 hover:text-blue-700 transition-colors duration-150">
-          <AiOutlineEdit size="1.5em" />
-        </button>
-        <button
-          onClick={deleteHandler}
-          className="text-red-500 hover:text-red-700 transition-colors duration-150">
-          <AiOutlineDelete size="1.5em" />
-        </button>
+        <button onClick={() => updateHandler()} className="flex justify-center items-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-indigo-600 bg-transparent w-full md:w-auto">Update</button>
       </div>
-    </div>
+    ) :
+    <span className="text-gray-800 text-sm md:text-lg">{todo.title}</span>
+  }
+  <div className="flex justify-center items-center space-x-2">
+    <button
+      onClick={() => setUpdateTodo(!updateTodo)}
+      className="text-blue-500 hover:text-blue-700 transition-colors duration-150">
+      <AiOutlineEdit size="1.5em" />
+    </button>
+    <button
+      onClick={deleteHandler}
+      className="text-red-500 hover:text-red-700 transition-colors duration-150">
+      <AiOutlineDelete size="1.5em" />
+    </button>
+  </div>
+</div>
+
   );
 };
 

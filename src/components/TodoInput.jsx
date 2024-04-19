@@ -30,22 +30,23 @@ function TodoInput(props) {
 
 
   return (
-    <div className="w-[50%]">
-      <form className='flex w-full items-center justify-center p-4' onSubmit={handleAddClick}>
-        <input
-          type="text"
-          className="form-input px-4 py-3 rounded-l-md border-2 border-r-0 border-gray-300 focus:outline-none"
-          placeholder="Add new todo"
-          value={input}
-          onChange={handleInputChange}
-        />
-        <button
-          className="px-4 py-3 bg-blue-500 text-white rounded-r-md hover:bg-blue-700 focus:outline-none"
-        >
-          Add
-        </button>
-      </form>
-    </div>
+    <div className="w-[60%] sm-w-auto mx-auto">
+  <form className='flex flex-col sm:flex-row items-center justify-center p-4' onSubmit={handleAddClick}>
+    <input
+      type="text"
+      className="form-input px-1 py-3 rounded-md sm:rounded-r-none border-2 border-r-0 border-gray-300 focus:outline-none w-full sm:w-auto"
+      placeholder="Add new todo"
+      value={input}
+      onChange={handleInputChange}
+    />
+    <button
+      className="px-4 py-3 sm:bg-blue-500 sm:text-white rounded-r-md sm:rounded-l-none sm:rounded-r-md font-bold focus:outline-none bg-transparent text-blue-500 sm:w-auto"
+    >
+      Add
+    </button>
+  </form>
+</div>
+
   );
 }
 

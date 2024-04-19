@@ -30,12 +30,16 @@ function Login(props) {
       };
 
       const response = await axios.post('https://backend-pe1a.onrender.com/login',userData);
-      console.log(response.data,'login');
       
-      props.setUserData(response.data.userPresent);
-      props.setTokens(response.data.tokens);
-      props.setAuth(true);
-      toast.success('User Logged In');
+      if(Object.keys(response.data).length === 2){
+        props.setUserData(response.data.userPresent);
+        props.setTokens(response.data.tokens);
+        props.setAuth(true);
+        toast.success('User Logged In');
+      }
+      else{
+        toast.error('Password or email not correct');
+      }
       
 
     } catch (error) {
