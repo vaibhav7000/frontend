@@ -31,7 +31,7 @@ function TodoInput(props) {
 
   return (
     <div className="w-[60%] sm-w-auto mx-auto">
-  <form className='flex flex-col sm:flex-row items-center justify-center p-4' onSubmit={handleAddClick}>
+  <form className='flex flex-col sm:flex-row items-center  justify-center p-4' onSubmit={handleAddClick}>
     <input
       type="text"
       className="form-input px-1 py-3 rounded-md sm:rounded-r-none border-2 border-r-0 border-gray-300 focus:outline-none w-full sm:w-auto"
