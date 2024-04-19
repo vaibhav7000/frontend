@@ -42,12 +42,12 @@ const TodoItem = (props) => {
   }
 
   return (
-    <div className="w-[40%] flex justify-between items-center bg-white shadow-md rounded-lg p-4 m-2">
+    <div className="w-[80%] flex justify-between items-center bg-white shadow-md rounded-lg p-4 m-2">
       {
         updateTodo ? <div className='flex items-center justify-center'>
         <input
           type="text"
-          className="form-input px-4 py-2 rounded-l-md border-2 border-gray-300 focus:outline-none"
+          className="form-input px-2 py-1 rounded-l-md border-2 border-gray-300 focus:outline-none"
           placeholder="Update todo"
           value={title}
           onChange={(event_object)=>setTitle(event_object.target.value)}        
@@ -58,7 +58,7 @@ const TodoItem = (props) => {
       }
       <div className="flex space-x-2">
         <button
-          onClick={() => setUpdateTodo(true)}
+          onClick={() => setUpdateTodo(!updateTodo)}
           className="text-blue-500 hover:text-blue-700 transition-colors duration-150">
           <AiOutlineEdit size="1.5em" />
         </button>
